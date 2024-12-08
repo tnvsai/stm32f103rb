@@ -24,12 +24,15 @@
 
 
 uint64_t Counter = 0;
+uint16_t ADC_Data = 0;
 int main(void)
 {
 	GPIO_Config();
+	ADC_Config();
 
 	while(1)
 	{
+		ADC_Data = ADC_ReadValue();
 		Counter++;
 	}
 
