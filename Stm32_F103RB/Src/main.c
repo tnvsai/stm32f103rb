@@ -22,34 +22,16 @@
 #include"stm32f103xb.h"
 
 
+
+uint64_t Counter = 0;
 int main(void)
 {
+	GPIO_Config();
 
-	BuildinLED_Blink();
-	__enable_irq();
-	/* Loop forever */
-	for(;;)
+	while(1)
 	{
-		BuildinLED_Blink();
-
+		Counter++;
 	}
 
-
-
 }
-//void EXTI15_10_IRQHandler(void)
-//{
-//	 if (EXTI->PR & EXTI_PR_PR13)
-//	    {
-//	        // Clear the EXTI line 13 pending bit
-//	        EXTI->PR |= EXTI_PR_PR13;
-//
-//	        // Your interrupt handling code here
-//	        // ...
-//	    	/* Togle GPIOA5*/
-//	        GPIOA->ODR ^= (1<<5);
-////	    	*GPIOA_ODR ^= (1<<5);
-//	    	Delay(1000000);
-//	    }
-//
-//}
+
